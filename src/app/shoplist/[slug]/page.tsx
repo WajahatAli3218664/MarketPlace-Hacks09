@@ -3,9 +3,9 @@ import IProduct from "@/types/foods";
 import Product from "./Product";
 import { client } from "@/sanity/lib/client";
 
-async function Productpage({ params }: { params: { slug: string } }) {
-  const product: IProduct = await client.fetch(
-    `*[_type == "food" && slug.current == $slug][0] {
+async function ShoplistPage() {
+  const products: IProduct[] = await client.fetch(
+    `*[_type == "food"] {
       name,
       description,
       price,
@@ -13,21 +13,22 @@ async function Productpage({ params }: { params: { slug: string } }) {
       tags,
       "imageUrl": image.asset->url,
       "slug": slug.current,
-   }`,
-    { slug: params.slug }
+   }`
   );
 
   return (
-    <>
-      {product ? (
-        <Product product={product} />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {products.length > 0 ? (
+        products.map((product) => (
+          <Product key={product.slugs} product={product} />
+        ))
       ) : (
         <div className="text-center text-2xl my-10 font-bold">
-          <p>Oops! Product not found.</p>
+          <p>No products found.</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
-export default Productpage;
+export default ShoplistPage;
