@@ -46,7 +46,7 @@ function Product({ product }: { product: IProduct }) {
 
   // Handle notification
   const handleNotification = () => {
-    toast.success("🦄 Item was added to cart successfully", {
+    toast.success("🛒Item was added to cart successfully", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
