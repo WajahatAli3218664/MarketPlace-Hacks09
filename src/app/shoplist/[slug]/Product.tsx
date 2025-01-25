@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -67,11 +66,24 @@ function Product({ product }: { product: IProduct }) {
         height={200}
         alt={product?.name}
         className="w-full h-48 object-cover"
+        layout="responsive"
+        objectFit="cover"
+        quality={100}
       />
       <h2 className="text-xl font-bold mt-2">{product?.name}</h2>
       <p className="text-gray-600">{product?.description}</p>
       <div className="flex justify-between items-center mt-4">
         <span className="text-lg font-semibold">${product?.price}</span>
+        {product.originalPrice && (
+          <span className="text-sm line-through text-gray-500 ml-2">
+            ${product.originalPrice}
+          </span>
+        )}
+      </div>
+      <div className="flex justify-between items-center mt-2">
+        <span className="text-sm text-green-500">In Stock</span>
+      </div>
+      <div className="flex justify-between items-center mt-4">
         <button
           onClick={() => {
             handleAddToCart();
