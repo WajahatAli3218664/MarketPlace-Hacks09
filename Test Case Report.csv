@@ -1,0 +1,5 @@
+Test Case ID,Test Case ID,Test Steps,ExpectedResult,Actual Result,Status,Severity level,Assigned To,Remarks
+TC001,Validate product listing page,Open product page > Verify product,Products displayed correctly,Products displayed correctly,Passed,Low,Wajahat Ali,Product listing is accurate and user-friendly.
+TC002,Test API error handling,Disconnect API > Refresh page,Show fallback UI with error message,Error message shown,Passed,Medium,Wajahat Ali,Error handling works seamlessly during failures.
+TC003,Check cart functionality,Add product to cart > Verify cart contents,Cart updates with added product,Cart updates as expected,Passed,High,Wajahat Ali,Cart functionality is robust and intuitive.
+TC004,Ensure Responsiven ess on mobile,Resize browser window > Check layout,Layout adjusts properly to screen size,Responsive layout working as intended,Passed,Medium,Wajahat Ali,Design ensures consistency across devices.
